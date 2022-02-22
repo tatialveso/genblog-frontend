@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
 import UserLogin from '../../model/UserLogin';
 import useLocalStorage from 'react-use-localstorage';
-import { api } from '../../service/Service';
+import { login } from '../../service/Service';
 
 function Login() {
     let history = useHistory();
@@ -34,9 +34,8 @@ function Login() {
     async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            const resp = await api.post(`/users/login`, userLogin)
-            setToken(resp.data.token)
-
+            await login(`/users/login`, userLogin, setToken)
+            
             alert('Usuário logado com sucesso!');
         } catch (error) {
             alert('Dados do usuário inconsistentes. Erro ao logar!');
@@ -57,8 +56,25 @@ function Login() {
                             className='textos1'>
                                 Entrar
                         </Typography>
-                        <TextField value={userLogin.login} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='login' variant='outlined' name='login' margin='normal' fullWidth />
-                        <TextField value={userLogin.password} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='password' variant='outlined' name='password' margin='normal' type='password' fullWidth />
+                        <TextField
+                            value={userLogin.login}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='login'
+                            label='login'
+                            variant='outlined'
+                            name='login'
+                            margin='normal'
+                            fullWidth />
+                        <TextField
+                            value={userLogin.password}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='password'
+                            label='password'
+                            variant='outlined'
+                            name='password'
+                            margin='normal'
+                            type='password'
+                            fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary'>
                                 Logar
@@ -75,12 +91,7 @@ function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} style={{
-                backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
-                backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'
-            }}>
-
-            </Grid>
+            <Grid xs={6} className='imagem'></Grid>
         </Grid>
     );
 }
