@@ -2,9 +2,9 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
-import UserLogin from '../../model/UserLogin';
+import UserLogin from '../../../model/UserLogin';
 import useLocalStorage from 'react-use-localstorage';
-import { login } from '../../service/Service';
+import { login } from '../../../service/Service';
 
 function Login() {
     let history = useHistory();
@@ -31,10 +31,10 @@ function Login() {
         }
     }, [token])
 
-    async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(`/users/login`, userLogin, setToken)
+            await login(`/users/login`, userLogin, setToken);
             
             alert('Usuário logado com sucesso!');
         } catch (error) {
@@ -85,7 +85,7 @@ function Login() {
                         <Box marginRight={1}>
                             <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                         </Box>
-                        <Link to='/register'>
+                        <Link to="/register">
                             <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>Cadastre-se</Typography>
                         </Link>
                     </Box>

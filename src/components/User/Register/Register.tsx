@@ -44,7 +44,7 @@ function RegisterUser() {
 
     async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
-        if (confirmPassword == user.password && user.password.length >= 8) {
+        if (confirmPassword === user.password && user.password.length >= 8) {
             register(`/users/register`, user, setUserResult);
 
             alert('Usuario cadastrado com sucesso');
@@ -59,10 +59,44 @@ function RegisterUser() {
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
-                        <TextField value={user.name} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='name' label='name' variant='outlined' name='name' margin='normal' fullWidth />
-                        <TextField value={user.login} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='login' label='login' variant='outlined' name='login' margin='normal' fullWidth />
-                        <TextField value={user.password} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='password' label='password' variant='outlined' name='password' margin='normal' type='password' fullWidth />
-                        <TextField value={confirmPassword} onChange={(e:ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)} id='confirmPassword' label='confirmPassword' variant='outlined' name='confirmPassword' margin='normal' type='password' fullWidth />
+                        <TextField
+                            value={user.name}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='name'
+                            label='name'
+                            variant='outlined'
+                            name='name'
+                            margin='normal'
+                            fullWidth />
+                        <TextField
+                            value={user.login}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='login'
+                            label='login'
+                            variant='outlined'
+                            name='login'
+                            margin='normal'
+                            fullWidth />
+                        <TextField
+                            value={user.password}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='password'
+                            label='password'
+                            variant='outlined'
+                            name='password'
+                            margin='normal'
+                            type='password'
+                            fullWidth />
+                        <TextField
+                            value={confirmPassword}
+                            onChange={(e:ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)}
+                            id='confirmPassword'
+                            label='confirmPassword'
+                            variant='outlined'
+                            name='confirmPassword'
+                            margin='normal'
+                            type='password'
+                            fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='btnCancelar'>
