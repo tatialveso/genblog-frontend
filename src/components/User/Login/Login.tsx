@@ -60,24 +60,26 @@ function Login() {
                             value={userLogin.login}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='login'
-                            label='login'
+                            label='Endereço de e-mail'
                             variant='outlined'
                             name='login'
                             margin='normal'
+                            required
                             fullWidth />
                         <TextField
                             value={userLogin.password}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='password'
-                            label='password'
+                            label='Senha'
                             variant='outlined'
                             name='password'
                             margin='normal'
                             type='password'
+                            required
                             fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary'>
-                                Logar
+                                Entrar
                             </Button>
                         </Box>
                     </form>

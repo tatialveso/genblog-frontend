@@ -63,39 +63,43 @@ function RegisterUser() {
                             value={user.name}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='name'
-                            label='name'
+                            label='Como você gostaria de ser chamade?'
                             variant='outlined'
                             name='name'
                             margin='normal'
+                            required
                             fullWidth />
                         <TextField
                             value={user.login}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='login'
-                            label='login'
+                            label='Insira o seu melhor endereço de e-mail'
                             variant='outlined'
                             name='login'
                             margin='normal'
+                            required
                             fullWidth />
                         <TextField
                             value={user.password}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='password'
-                            label='password'
+                            label='Crie uma senha de acesso'
                             variant='outlined'
                             name='password'
                             margin='normal'
                             type='password'
+                            required
                             fullWidth />
                         <TextField
                             value={confirmPassword}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)}
                             id='confirmPassword'
-                            label='confirmPassword'
+                            label='Repita a senha para confirmação'
                             variant='outlined'
                             name='confirmPassword'
                             margin='normal'
                             type='password'
+                            required
                             fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>

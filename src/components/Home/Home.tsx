@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Box, Grid, Button } from '@material-ui/core';
+import PostsTab from '../Posts/PostsTab/PostsTab';
 import './Home.css';
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
           <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
         </Grid>
         <Grid xs={12} style={{ backgroundColor: "white" }}>
+          < PostsTab />
         </Grid>
       </Grid>
     </>
