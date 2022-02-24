@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Footer from './components/Static/Footer/Footer';
@@ -12,6 +11,7 @@ import CreatePost from './components/Posts/CreatePost/CreatePost';
 import CreateTheme from './components/Theme/CreateTheme/CreateTheme';
 import DeletePost from './components/Posts/DeletePost/DeletePost';
 import DeleteTheme from './components/Theme/DeleteTheme/DeleteTheme';
+import './App.css';
 
 function App() {
   return (
