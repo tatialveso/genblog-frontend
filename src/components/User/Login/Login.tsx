@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Box, Grid, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
-import './Login.css';
 import UserLogin from '../../../model/UserLogin';
 import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../../service/Service';
+import './Login.css';
 
 function Login() {
     let history = useHistory();
@@ -36,9 +36,9 @@ function Login() {
         try {
             await login(`/users/login`, userLogin, setToken);
             
-            alert('Usuário logado com sucesso!');
+            alert('O seu usuário foi logado com sucesso!');
         } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
+            alert('Ocorreu um erro, por favor verifique se inseriu os dados corretamente.');
         }
     }
 
@@ -53,7 +53,7 @@ function Login() {
                             color='textPrimary'
                             component='h3'
                             align='center'
-                            className='textos1'>
+                            className='bold'>
                                 Entrar
                         </Typography>
                         <TextField
@@ -61,6 +61,7 @@ function Login() {
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='login'
                             label='Endereço de e-mail'
+                            placeholder='Insira seu e-mail cadastrado'
                             variant='outlined'
                             name='login'
                             margin='normal'
@@ -71,6 +72,7 @@ function Login() {
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='password'
                             label='Senha'
+                            placeholder='Insira a sua senha cadastrada'
                             variant='outlined'
                             name='password'
                             margin='normal'
@@ -78,7 +80,7 @@ function Login() {
                             required
                             fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button type='submit' variant='contained' className='loginBtn'>
                                 Entrar
                             </Button>
                         </Box>
@@ -88,12 +90,12 @@ function Login() {
                             <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                         </Box>
                         <Link to="/cadastro">
-                            <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>Cadastre-se</Typography>
+                            <Typography variant='subtitle1' gutterBottom align='center'>Cadastre-se</Typography>
                         </Link>
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className='imagem'></Grid>
+            <Grid xs={6} className='logo-img'></Grid>
         </Grid>
     );
 }
