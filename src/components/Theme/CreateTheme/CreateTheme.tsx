@@ -30,7 +30,7 @@ function CreateTheme() {
     }, [id])
 
     async function findById(id: string) {
-        searchId(`/temas/${id}`, setTheme, {
+        searchId(`/themes/${id}`, setTheme, {
             headers: {
                 'Authorization': token
             }
@@ -69,7 +69,7 @@ function CreateTheme() {
     }
 
     function back() {
-        history.push('/themes')
+        history.push('/temas')
     }
 
     return (
@@ -82,10 +82,10 @@ function CreateTheme() {
                 <TextField
                     value={theme.description}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)}
-                    id="descricao"
-                    label="descricao"
+                    id="description"
+                    label="Digite o título do seu tema"
                     variant="outlined"
-                    name="descricao"
+                    name="description"
                     margin="normal"
                     fullWidth />
                 <Button

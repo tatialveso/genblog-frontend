@@ -46,14 +46,14 @@ function ThemeList() {
                         <CardActions>
                             <Box display="flex" justifyContent="center" mb={1.5} >
 
-                                <Link to={`/formTheme/${theme.id}`} className="text-decorator-none">
+                                <Link to={`/editar-tema/${theme.id}`} className="text-decorator-none">
                                     <Box mx={1}>
                                         <Button variant="contained" className="marginLeft" size='small' color="primary" >
                                             Editar tema
                                         </Button>
                                     </Box>
                                 </Link>
-                                <Link to={`/deleteTheme/${theme.id}`} className="text-decorator-none">
+                                <Link to={`/deletar-tema/${theme.id}`} className="text-decorator-none">
                                     <Box mx={1}>
                                         <Button variant="contained" size='small' color="secondary">
                                             Excluir tema
