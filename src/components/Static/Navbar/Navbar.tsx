@@ -39,21 +39,21 @@ function Navbar() {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/posts">
+                        <Link to="/postagens">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     postagens
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/themes">
+                        <Link to="/temas">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     temas
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="themeForm">
+                        <Link to="criar-tema">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     cadastrar tema
