@@ -1,0 +1,17 @@
+.navbar {
+    background-color: var(--bright-yellow)!important;
+    box-shadow: none!important;
+
+}
+
+.displayFlex {
+    display: flex;
+    justify-content: space-between;
+}
+
+a,
+.link {
+    text-decoration: none;
+    color: var(--white);
+    cursor: pointer;
+}

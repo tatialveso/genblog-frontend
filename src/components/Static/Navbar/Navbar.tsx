@@ -4,13 +4,6 @@ import { Link, useHistory } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import './Navbar.css';
 
-const style = {
-    fontFamily: 'Poppins, sans-serif',
-    backgroundColor: '#ffee58',
-    boxShadow: 'none',
-    color: '#000000'
-};
-
 function Navbar() {
     const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
@@ -23,44 +16,44 @@ function Navbar() {
 
     return (
         <>
-            <AppBar style={style} position="static">
-                <Toolbar variant="dense">
-                    <Box className='cursor' >
-                        <Typography variant="h5" color="inherit">
+            <AppBar position="static" className='navbar'>
+                <Toolbar className="displayFlex" variant="dense">
+                    <Box >
+                        <Typography variant="h5">
                             BlogPessoal
                         </Typography>
                     </Box>
 
                     <Box display="flex" justifyContent="start">
                         <Link to="/home">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
+                            <Box mx={1}>
+                                <Typography variant="h6">
                                     home
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/postagens">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
+                        <Link to="/postagens" >
+                            <Box mx={1}>
+                                <Typography variant="h6">
                                     postagens
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/temas">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
+                        <Link to="/temas" >
+                            <Box mx={1}>
+                                <Typography variant="h6">
                                     temas
                                 </Typography>
                             </Box>
                         </Link>
                         <Link to="criar-tema">
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
+                            <Box mx={1}>
+                                <Typography variant="h6">
                                     cadastrar tema
                                 </Typography>
                             </Box>
                         </Link>
-                        <Box mx={1} className='cursor white' onClick={goLogout}>
+                        <Box mx={1} className="link" onClick={goLogout}>
                             <Typography variant="h6" color="inherit">
                                 logout
                             </Typography>
