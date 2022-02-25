@@ -54,8 +54,8 @@ function Navbar() {
                             </Box>
                         </Link>
                         <Box mx={1} className="link" onClick={goLogout}>
-                            <Typography variant="h6" color="inherit">
-                                logout
+                            <Typography className="link" variant="h6" color="inherit">
+                                sair
                             </Typography>
                         </Box>
                     </Box>

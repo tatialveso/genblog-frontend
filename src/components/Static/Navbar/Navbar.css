@@ -9,9 +9,18 @@
     justify-content: space-between;
 }
 
-a,
-.link {
+a {
     text-decoration: none;
     color: var(--white);
     cursor: pointer;
+}
+
+.link {
+    color: var(--light-red);
+    cursor: pointer;
+    font-weight: 600!important;
+}
+
+.link:hover {
+    color: var(--white);
 }
