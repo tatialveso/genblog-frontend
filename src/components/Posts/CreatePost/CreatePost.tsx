@@ -5,6 +5,7 @@ import useLocalStorage from 'react-use-localstorage';
 import { search, searchId, post, put } from '../../../service/Service';
 import Theme from '../../../model/Theme';
 import Posts from '../../../model/Posts';
+import './CreatePost.css';
 
 function CreatePost() {
   let history = useHistory();
@@ -98,49 +99,60 @@ function CreatePost() {
   }
 
   return (
-    <Container maxWidth="sm" className="topo">
+    <Container maxWidth="sm">
       <form onSubmit={onSubmit}>
-        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+        <Typography
+          className="modalTitle"
+          variant="h3"
+          component="h1"
+          align="center">
+          Crie uma nova postagem
+        </Typography>
         <TextField
           value={posts.title}
           onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPost(e)}
           id="titulo"
-          label="titulo"
-          variant="outlined"
+          label="Título da postagem"
+          placeholder="Insira o título da sua publicação"
+          variant='outlined'
           name="title"
           margin="normal"
+          required
           fullWidth />
         <TextField
           value={posts.text}
           onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPost(e)}
           id="texto"
-          label="texto"
+          label="Texto da postagem"
+          placeholder="Insira o que você quer compartilhar"
           name="text"
-          variant="outlined"
+          variant='outlined'
           margin="normal"
+          required
           fullWidth />
-
-        <FormControl >
-          <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+        <FormControl fullWidth>
+          <InputLabel className="inputSelect" id="demo-simple-select-label">Temática</InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
+            label="Temática"
+            variant='outlined'
             onChange={(e) => searchId(`/themes/${e.target.value}`, setTheme, {
               headers: {
                 'Authorization': token
               }
             })}>
+              <MenuItem value="">Selecione uma temática</MenuItem>
             {
               themes.map(theme => (
                 <MenuItem value={theme.id}>{theme.description}</MenuItem>
               ))
             }
           </Select>
-          <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-          <Button type="submit" variant="contained" color="primary">
-            Finalizar
-          </Button>
         </FormControl>
+        <Button fullWidth className="btn" type="submit" variant="contained" color="primary">
+          Finalizar
+        </Button>
       </form>
     </Container>
   )

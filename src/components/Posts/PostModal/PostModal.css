@@ -1,0 +1,6 @@
+.btnModal {
+    background-color: var(--bright-yellow)!important;
+    border: none!important;
+    border-radius: 10px!important;
+    padding: 10px 20px !important;
+}

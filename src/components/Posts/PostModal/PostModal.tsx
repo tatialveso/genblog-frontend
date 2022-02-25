@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import {Button,Box } from "@material-ui/core"
 import CloseIcon from '@material-ui/icons/Close';
 import CreatePost from '../CreatePost/CreatePost';
-
+import './PostModal.css';
 
 function getModalStyle() {
   const top = 50;

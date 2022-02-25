@@ -1,0 +1,26 @@
+.makeStyles-paper-21 {
+    border-radius: 10px!important;
+}
+
+.modalTitle {
+    font-size: 2.5rem!important;
+    margin-bottom: 15px!important;
+    color: var(--dark-grey)!important;
+}
+
+.MuiFormControl-root {
+    margin: 15px 0!important;
+}
+
+.inputSelect {
+    margin-top: -5px!important;
+    padding-left: 15px!important;
+}
+
+.btn {
+    background-color: var(--bright-yellow)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    margin-top: 15px!important;
+    border-radius: 10px!important;
+}
