@@ -1,0 +1,29 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+    border-radius: 10px!important;
+}
+
+.themeName {
+    font-weight: 600!important;
+    color: var(--bright-pink);
+}
+
+.editBtn {
+    background-color: var(--bright-yellow)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+}
+
+.deleteBtn {
+    background-color: var(--light-red)!important;
+    color: var(--white)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+    text-decoration: none!important;
+}

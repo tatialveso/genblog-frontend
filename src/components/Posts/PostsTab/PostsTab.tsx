@@ -19,7 +19,7 @@ function PostsTab() {
           </Tabs>
         </AppBar>
         <TabPanel value="1" >
-          <Box display="flex" flexWrap="wrap" justifyContent="center">
+          <Box>
             <PostsList />
           </Box>
         </TabPanel>
