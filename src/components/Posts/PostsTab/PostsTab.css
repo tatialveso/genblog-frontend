@@ -1,0 +1,17 @@
+.homeTab {
+    background-color: var(--bright-yellow)!important;
+    color: var(--black)!important;
+}
+
+.aboutTitle {
+    font-weight: 600!important;
+    text-transform: uppercase!important;
+    margin-bottom: 15px!important;
+    text-align: center!important;
+}
+
+.aboutText {
+    text-align: justify!important;
+    width: 75%!important;
+    margin: auto!important;
+}
