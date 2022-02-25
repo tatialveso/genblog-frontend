@@ -1,0 +1,18 @@
+.top {
+    margin-top: 50px;
+}
+
+.formTitle {
+    font-size: 2rem!important;
+    margin-bottom: 15px!important;
+    color: var(--dark-grey)!important;
+    text-align: center;
+}
+
+.btn {
+    background-color: var(--bright-yellow)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    margin-top: 15px!important;
+    border-radius: 10px!important;
+}

@@ -4,6 +4,7 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@materi
 import Theme from '../../../model/Theme';
 import useLocalStorage from 'react-use-localstorage';
 import { search } from '../../../service/Service';
+import './ThemeList.css';
 
 function ThemeList() {
     const [themes, setThemes] = useState<Theme[]>([]);
@@ -33,30 +34,26 @@ function ThemeList() {
     return (
         <>
             {themes.map(theme => (
-                <Box m={2} >
-                    <Card variant="outlined">
+                <Box m={2} className="grid">
+                    <Card variant="outlined" className="card">
                         <CardContent>
-                            <Typography color="textSecondary" gutterBottom>
-                                Tema
-                            </Typography>
                             <Typography variant="h5" component="h2">
                                 { theme.description }
                             </Typography>
                         </CardContent>
                         <CardActions>
                             <Box display="flex" justifyContent="center" mb={1.5} >
-
-                                <Link to={`/editar-tema/${theme.id}`} className="text-decorator-none">
+                                <Link to={`/editar-tema/${theme.id}`}>
                                     <Box mx={1}>
-                                        <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                                            Editar tema
+                                        <Button variant="contained" className="editBtn">
+                                            Editar este tema
                                         </Button>
                                     </Box>
                                 </Link>
-                                <Link to={`/deletar-tema/${theme.id}`} className="text-decorator-none">
+                                <Link to={`/deletar-tema/${theme.id}`}>
                                     <Box mx={1}>
-                                        <Button variant="contained" size='small' color="secondary">
-                                            Excluir tema
+                                        <Button variant="contained" className="deleteBtn">
+                                            Excluir este tema
                                         </Button>
                                     </Box>
                                 </Link>

@@ -1,0 +1,24 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    border-radius: 10px!important;
+}
+
+.editBtn {
+    background-color: var(--bright-yellow)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+}
+
+.deleteBtn {
+    background-color: var(--light-red)!important;
+    color: var(--white)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+    text-decoration: none!important;
+}

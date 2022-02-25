@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { searchId, deleteId } from '../../../service/Service';
 import Theme from '../../../model/Theme';
+import './DeleteTheme.css';
 
 
 function DeleteTheme() {
@@ -50,30 +51,28 @@ function DeleteTheme() {
   return (
     <>
       <Box m={2}>
-        <Card variant="outlined">
+        <Card variant="outlined" className="deleteCard">
           <CardContent>
             <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
-                Deseja deletar o Tema:
+              <Typography gutterBottom className="title">
+                Você deseja excluir este tema?
               </Typography>
-              <Typography color="textSecondary">
+              <Typography>
                 {theme?.description}
               </Typography>
             </Box>
           </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-              <Box mx={2}>
-                <Button onClick={yes} variant="contained" className="marginLeft" size='large' color="primary">
-                  Sim
+          <CardActions className="displayBtn">
+              <Box>
+                <Button onClick={yes} variant="contained" className="yesBtn">
+                  Sim, quero excluir este tema
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button onClick={no} variant="contained" size='large' color="secondary">
-                  Não
+                <Button onClick={no} variant="contained" className="noBtn">
+                  Não, quero manter este tema
                 </Button>
               </Box>
-            </Box>
           </CardActions>
         </Card>
       </Box>

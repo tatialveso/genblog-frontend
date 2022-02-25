@@ -4,7 +4,7 @@ import Theme from '../../../model/Theme';
 import { searchId, post, put } from '../../../service/Service';
 import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
-
+import './CreateTheme.css';
 
 function CreateTheme() {
     let history = useHistory();
@@ -73,17 +73,20 @@ function CreateTheme() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm" className="top">
             <form onSubmit={onSubmit}>
                 <Typography
                     variant="h3"
-                    color="textSecondary"
-                    component="h1" align="center" >Formulário de cadastro tema</Typography>
+                    className="formTitle"
+                    component="h1">
+                        Formulário de cadastro tema
+                </Typography>
                 <TextField
                     value={theme.description}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTheme(e)}
                     id="description"
-                    label="Digite o título do seu tema"
+                    label="Título do tema"
+                    placeholder="Insira um nome de um tema"
                     variant="outlined"
                     name="description"
                     margin="normal"
@@ -91,8 +94,8 @@ function CreateTheme() {
                 <Button
                     type="submit"
                     variant="contained"
-                    color="primary">
-                    Finalizar
+                    className="btn">
+                    Criar tema
                 </Button>
             </form>
         </Container>
