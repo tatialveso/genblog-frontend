@@ -1,0 +1,34 @@
+.deleteCard {
+    text-align: center!important;
+    width: 75%;
+    margin: auto;
+    padding: 30px 0;
+}
+
+.title {
+    font-weight: 600!important;
+    font-size: 1.5rem!important;
+}
+
+.displayBtn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.noBtn {
+    background-color: var(--light-green)!important;
+    color: var(--white)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+}
+
+.yesBtn {
+    background-color: var(--light-red)!important;
+    color: var(--white)!important;
+    box-shadow: none!important;
+    padding: 10px 20px!important;
+    border-radius: 10px!important;
+    text-decoration: none!important;
+    margin-right: 20px!important;
+}

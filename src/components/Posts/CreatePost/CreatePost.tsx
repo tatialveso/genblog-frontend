@@ -99,7 +99,7 @@ function CreatePost() {
   }
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" className="top">
       <form onSubmit={onSubmit}>
         <Typography
           className="modalTitle"

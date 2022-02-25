@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import Posts from '../../../model/Posts';
 import { searchId, deleteId } from '../../../service/Service';
+import './DeletePost.css';
 
 function DeletePost() {
   let history = useHistory();
@@ -49,31 +50,29 @@ function DeletePost() {
   return (
     <>
       <Box m={2}>
-        <Card variant="outlined" >
+        <Card variant="outlined" className="deleteCard">
           <CardContent>
             <Box justifyContent="center">
-              <Typography color="textSecondary" gutterBottom>
-                Deseja deletar a Postagem:
+              <Typography gutterBottom className="title">
+                Você deseja excluir a seguinte postagem?
               </Typography>
-              <Typography color="textSecondary" >
+              <Typography>
                 {post?.title}
               </Typography>
             </Box>
 
           </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-              <Box mx={2}>
-                <Button onClick={yes} variant="contained" className="marginLeft" size='large' color="primary">
-                  Sim
+          <CardActions className="displayBtn">
+              <Box>
+                <Button onClick={yes} className="yesBtn">
+                  Sim, quero excluir esta postagem
                 </Button>
               </Box>
               <Box>
-                <Button onClick={no} variant="contained" size='large' color="secondary">
-                  Não
+                <Button onClick={no} className="noBtn">
+                  Não, quero manter esta postagem
                 </Button>
               </Box>
-            </Box>
           </CardActions>
         </Card>
       </Box>
