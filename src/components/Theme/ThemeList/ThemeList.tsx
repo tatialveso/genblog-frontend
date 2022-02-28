@@ -50,7 +50,7 @@ function ThemeList() {
     return (
         <>
             {themes.map(theme => (
-                <Box m={2} className="grid">
+                <Box m={2}>
                     <Card variant="outlined" className="card">
                         <CardContent>
                             <Typography variant="h5" component="h2">

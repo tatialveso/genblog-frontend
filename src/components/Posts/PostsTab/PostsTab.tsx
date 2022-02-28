@@ -20,7 +20,7 @@ function PostsTab() {
           </Tabs>
         </AppBar>
         <TabPanel value="1">
-          <Box>
+          <Box className="grid2">
             <PostsList />
           </Box>
         </TabPanel>

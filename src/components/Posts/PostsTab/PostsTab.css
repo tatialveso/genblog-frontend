@@ -1,3 +1,8 @@
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .homeTab {
     background-color: var(--bright-yellow)!important;
     color: var(--black)!important;

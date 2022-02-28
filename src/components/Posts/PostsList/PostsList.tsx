@@ -49,7 +49,7 @@ function PostsList() {
     return (
         <>
             {posts.map(post => (
-                <Box m={2} className="grid2">
+                <Box m={2}>
                     <Card variant="outlined" className="card">
                         <CardContent>
                             <Typography variant="h5" component="h2">
