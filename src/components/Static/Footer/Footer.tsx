@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import { Typography, Box, Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
@@ -30,7 +31,7 @@ function Footer() {
                             gutterBottom
                             style={{ color: "white" }}
                             align="center">
-                            feito com ❤ por <a href="https://tatialveso.github.io" target="_blank">tati alves</a>
+                            feito com ❤ por <a href="https://tatialveso.github.io" target="_blank" rel='noreferrer'>tati alves</a>
                         </Typography>
                     </Box>
                 </Box>

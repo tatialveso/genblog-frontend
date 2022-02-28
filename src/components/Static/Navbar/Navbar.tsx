@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import { AppBar, Box, Toolbar, Typography } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';

@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
 import React, { useEffect } from 'react';
-import { Typography, Box, Grid, Button } from '@material-ui/core';
+import { Typography, Box, Grid } from '@material-ui/core';
 import PostsTab from '../Posts/PostsTab/PostsTab';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';

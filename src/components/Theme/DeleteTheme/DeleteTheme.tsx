@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
 import React, { useEffect, useState } from 'react';
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';

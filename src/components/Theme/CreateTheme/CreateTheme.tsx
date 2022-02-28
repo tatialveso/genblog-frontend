@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import Theme from '../../../model/Theme';
