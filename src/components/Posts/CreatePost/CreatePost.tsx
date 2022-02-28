@@ -1,7 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import { search, searchId, post, put } from '../../../service/Service';
 import Theme from '../../../model/Theme';
 import Posts from '../../../model/Posts';
@@ -11,7 +12,10 @@ function CreatePost() {
   let history = useHistory();
   const { id } = useParams<{ id: string }>();
   const [themes, setThemes] = useState<Theme[]>([])
-  const [token, setToken] = useLocalStorage('token');
+  
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {

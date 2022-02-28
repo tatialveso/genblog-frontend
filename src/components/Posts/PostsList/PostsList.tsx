@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import Posts from '../../../model/Posts';
 import { search } from '../../../service/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import useLocalStorage from 'react-use-localstorage';
 import './PostsList.css';
 
 function PostsList() {
     const [posts, setPosts] = useState<Posts[]>([])
-    const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
+
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == "") {

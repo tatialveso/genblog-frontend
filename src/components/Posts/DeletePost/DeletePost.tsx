@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, Button, Box, Card, CardActions, CardContent } from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import Posts from '../../../model/Posts';
 import { searchId, deleteId } from '../../../service/Service';
 import './DeletePost.css';
@@ -9,7 +10,11 @@ import './DeletePost.css';
 function DeletePost() {
   let history = useHistory();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage('token');
+  
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
   const [post, setPosts] = useState<Posts>()
 
   useEffect(() => {

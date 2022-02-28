@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Theme from '../../../model/Theme';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import { search } from '../../../service/Service';
 import './ThemeList.css';
 
 function ThemeList() {
     const [themes, setThemes] = useState<Theme[]>([]);
-    const [token, setToken] = useLocalStorage('token');
     let history = useHistory();
+
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == '') {

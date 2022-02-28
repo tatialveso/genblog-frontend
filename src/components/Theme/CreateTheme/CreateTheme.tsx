@@ -3,13 +3,17 @@ import { Container, Typography, TextField, Button } from "@material-ui/core"
 import Theme from '../../../model/Theme';
 import { searchId, post, put } from '../../../service/Service';
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokenReducer';
 import './CreateTheme.css';
 
 function CreateTheme() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage('token');
+    
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     const [theme, setTheme] = useState<Theme>({
         id: 0,

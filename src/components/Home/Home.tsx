@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { Typography, Box, Grid, Button } from '@material-ui/core';
 import PostsTab from '../Posts/PostsTab/PostsTab';
-import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokenReducer';
 import PostModal from '../Posts/PostModal/PostModal';
 import homeImg from '../../assets/img/home.png';
 import './Home.css';
 
 function Home() {
   let history = useHistory();
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {
