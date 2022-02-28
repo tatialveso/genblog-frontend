@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import Home from './components/Home/Home';
 import Footer from './components/Static/Footer/Footer';
 import Navbar from './components/Static/Navbar/Navbar';
@@ -15,64 +17,66 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <div style={{ minHeight: '100vh' }}>
-          <Route exact path='/'>
-            <Login />
-          </Route>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <div style={{ minHeight: '100vh' }}>
+            <Route exact path='/'>
+              <Login />
+            </Route>
 
-          <Route path='/home'>
-            <Home />
-          </Route>
+            <Route path='/home'>
+              <Home />
+            </Route>
 
-          {/* usuário */}
-          <Route path='/login'>
-            <Login />
-          </Route>
+            {/* usuário */}
+            <Route path='/login'>
+              <Login />
+            </Route>
 
-          <Route path='/cadastro'>
-            <Register />
-          </Route>
+            <Route path='/cadastro'>
+              <Register />
+            </Route>
 
-          {/* tema */}
-          <Route path='/temas'>
-            <ThemeList />
-          </Route>
+            {/* tema */}
+            <Route path='/temas'>
+              <ThemeList />
+            </Route>
 
-          <Route path='/criar-tema'>
-            <CreateTheme />
-          </Route>
+            <Route path='/criar-tema'>
+              <CreateTheme />
+            </Route>
 
-          <Route path='/editar-tema/:id'>
-            <CreateTheme />
-          </Route>
+            <Route path='/editar-tema/:id'>
+              <CreateTheme />
+            </Route>
 
-          <Route path='/deletar-tema/:id'>
-            <DeleteTheme />
-          </Route>
+            <Route path='/deletar-tema/:id'>
+              <DeleteTheme />
+            </Route>
 
-          {/* postagem */}
-          <Route path='/postagens'>
-            <PostsList />
-          </Route>
+            {/* postagem */}
+            <Route path='/postagens'>
+              <PostsList />
+            </Route>
 
-          <Route path='/criar-postagem'>
-            <CreatePost />
-          </Route>
+            <Route path='/criar-postagem'>
+              <CreatePost />
+            </Route>
 
-          <Route path='/editar-postagem/:id'>
-            <CreatePost />
-          </Route>
+            <Route path='/editar-postagem/:id'>
+              <CreatePost />
+            </Route>
 
-          <Route path='/deletar-postagem/:id'>
-            <DeletePost />
-          </Route>
-        </div>
-      </Switch>
-      <Footer />
-    </Router>
+            <Route path='/deletar-postagem/:id'>
+              <DeletePost />
+            </Route>
+          </div>
+        </Switch>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 
