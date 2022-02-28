@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './components/Home/Home';
 import Footer from './components/Static/Footer/Footer';
 import Navbar from './components/Static/Navbar/Navbar';
@@ -18,6 +20,7 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Router>
         <Navbar />
         <Switch>

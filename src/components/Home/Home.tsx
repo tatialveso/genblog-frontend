@@ -7,6 +7,7 @@ import { TokenState } from '../../store/tokens/tokenReducer';
 import PostModal from '../Posts/PostModal/PostModal';
 import homeImg from '../../assets/img/home.png';
 import './Home.css';
+import { toast } from 'react-toastify';
 
 function Home() {
   let history = useHistory();
@@ -16,7 +17,16 @@ function Home() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.info('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history.push("/login")
 
     }
@@ -31,13 +41,13 @@ function Home() {
               variant="h1"
               gutterBottom
               align="center">
-                Boas vindas ao nosso blog!
+              Boas vindas ao nosso blog!
             </Typography>
             <Typography
               variant="h2"
               gutterBottom
               align="center">
-                Este é o nosso cantinho literário, indicações e compartilhamento de experiências de leitura
+              Este é o nosso cantinho literário, indicações e compartilhamento de experiências de leitura
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">

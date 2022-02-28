@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';
 import { search } from '../../../service/Service';
 import './ThemeList.css';
+import { toast } from 'react-toastify';
 
 function ThemeList() {
     const [themes, setThemes] = useState<Theme[]>([]);
@@ -17,7 +18,16 @@ function ThemeList() {
 
     useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado");
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history.push("/login");
         }
     }, [token])

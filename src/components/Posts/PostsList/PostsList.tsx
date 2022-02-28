@@ -6,6 +6,7 @@ import Posts from '../../../model/Posts';
 import { search } from '../../../service/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './PostsList.css';
+import { toast } from 'react-toastify';
 
 function PostsList() {
     const [posts, setPosts] = useState<Posts[]>([])
@@ -17,7 +18,16 @@ function PostsList() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado");
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history.push("/login")
         }
     }, [token])

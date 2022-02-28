@@ -6,11 +6,12 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokenReducer';
 import './CreateTheme.css';
+import { toast } from 'react-toastify';
 
 function CreateTheme() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
-    
+
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
@@ -22,7 +23,16 @@ function CreateTheme() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado");
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history.push("/login");
         }
     }, [token])
@@ -60,14 +70,32 @@ function CreateTheme() {
                     'Authorization': token
                 }
             })
-            alert('Tema atualizado com sucesso');
+            toast.success('Tema atualizado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } else {
             post(`/themes`, theme, setTheme, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado com sucesso');
+            toast.success('Tema cadastrado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
         back();
     }
@@ -83,7 +111,7 @@ function CreateTheme() {
                     variant="h3"
                     className="formTitle"
                     component="h1">
-                        Formulário de cadastro tema
+                    Formulário de cadastro tema
                 </Typography>
                 <TextField
                     value={theme.description}

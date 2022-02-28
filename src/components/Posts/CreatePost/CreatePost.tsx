@@ -7,19 +7,29 @@ import { search, searchId, post, put } from '../../../service/Service';
 import Theme from '../../../model/Theme';
 import Posts from '../../../model/Posts';
 import './CreatePost.css';
+import { toast } from 'react-toastify';
 
 function CreatePost() {
   let history = useHistory();
   const { id } = useParams<{ id: string }>();
   const [themes, setThemes] = useState<Theme[]>([])
-  
+
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.info('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history.push("/login")
 
     }
@@ -86,14 +96,32 @@ function CreatePost() {
         }
       })
 
-      alert('Postagem atualizada com sucesso');
+      toast.success('Postagem atualizada com sucesso', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     } else {
       post(`/posts`, posts, setPost, {
         headers: {
           'Authorization': token
         }
       })
-      alert('Postagem cadastrada com sucesso');
+      toast.success('Postagem cadastrada com sucesso', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     }
     back();
   }
@@ -146,7 +174,7 @@ function CreatePost() {
                 'Authorization': token
               }
             })}>
-              <MenuItem value="">Selecione uma temática</MenuItem>
+            <MenuItem value="">Selecione uma temática</MenuItem>
             {
               themes.map(theme => (
                 <MenuItem value={theme.id}>{theme.description}</MenuItem>

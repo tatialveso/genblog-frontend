@@ -6,12 +6,13 @@ import { TokenState } from '../../../store/tokens/tokenReducer';
 import { searchId, deleteId } from '../../../service/Service';
 import Theme from '../../../model/Theme';
 import './DeleteTheme.css';
+import { toast } from 'react-toastify';
 
 
 function DeleteTheme() {
   let history = useHistory();
   const { id } = useParams<{ id: string }>();
-  
+
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
@@ -20,7 +21,16 @@ function DeleteTheme() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
       history.push("/login")
     }
   }, [token])
@@ -46,7 +56,17 @@ function DeleteTheme() {
         'Authorization': token
       }
     });
-    alert('Tema deletado com sucesso');
+
+    toast.success('Tema deletado com sucesso!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
   }
 
   function no() {
@@ -68,16 +88,16 @@ function DeleteTheme() {
             </Box>
           </CardContent>
           <CardActions className="displayBtn">
-              <Box>
-                <Button onClick={yes} variant="contained" className="yesBtn">
-                  Sim, quero excluir este tema
-                </Button>
-              </Box>
-              <Box mx={2}>
-                <Button onClick={no} variant="contained" className="noBtn">
-                  Não, quero manter este tema
-                </Button>
-              </Box>
+            <Box>
+              <Button onClick={yes} variant="contained" className="yesBtn">
+                Sim, quero excluir este tema
+              </Button>
+            </Box>
+            <Box mx={2}>
+              <Button onClick={no} variant="contained" className="noBtn">
+                Não, quero manter este tema
+              </Button>
+            </Box>
           </CardActions>
         </Card>
       </Box>

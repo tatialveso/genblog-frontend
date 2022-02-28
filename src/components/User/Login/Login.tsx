@@ -6,6 +6,7 @@ import { login } from '../../../service/Service';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../../store/tokens/actions';
 import './Login.css';
+import { toast } from 'react-toastify';
 
 function Login() {
     let history = useHistory();
@@ -19,7 +20,7 @@ function Login() {
         token: ''
     })
 
-    function updatedModel(e:ChangeEvent<HTMLInputElement>) {
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUserLogin({
             ...userLogin,
@@ -38,10 +39,27 @@ function Login() {
         e.preventDefault();
         try {
             await login(`/users/login`, userLogin, setToken);
-            
-            alert('O seu usuário foi logado com sucesso!');
+            toast.success('Seu usuário foi logado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } catch (error) {
-            alert('Ocorreu um erro, por favor verifique se inseriu os dados corretamente.');
+            toast.error('Ocorreu um erro, por favor verifique se inseriu os dados corretamente', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
     }
 
@@ -57,11 +75,11 @@ function Login() {
                             component='h3'
                             align='center'
                             className='bold'>
-                                Entrar
+                            Entrar
                         </Typography>
                         <TextField
                             value={userLogin.login}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='login'
                             label='Endereço de e-mail'
                             placeholder='Insira seu e-mail cadastrado'
@@ -72,7 +90,7 @@ function Login() {
                             fullWidth />
                         <TextField
                             value={userLogin.password}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='password'
                             label='Senha'
                             placeholder='Insira a sua senha cadastrada'

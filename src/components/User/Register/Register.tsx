@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import User from '../../../model/User';
 import { register } from '../../../service/Service';
 import './Register.css';
@@ -46,9 +47,27 @@ function RegisterUser() {
         if (confirmPassword === user.password && user.password.length >= 8) {
             register(`/users/register`, user, setUserResult);
 
-            alert('O seu usuário foi cadastrado com sucesso!');
+            toast.success('O seu usuário foi cadastrado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+              });
         } else {
-            alert('Algo deu errado, por favor verifique se informou os dados corretos.');
+            toast.error('Algo deu errado, por favor verifique se informou os dados corretos.', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+              });
         }
     }
     return (

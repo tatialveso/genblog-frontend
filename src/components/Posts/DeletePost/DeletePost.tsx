@@ -6,6 +6,7 @@ import { TokenState } from '../../../store/tokens/tokenReducer';
 import Posts from '../../../model/Posts';
 import { searchId, deleteId } from '../../../service/Service';
 import './DeletePost.css';
+import { toast } from 'react-toastify';
 
 function DeletePost() {
   let history = useHistory();
@@ -19,7 +20,16 @@ function DeletePost() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+    });
       history.push("/login")
 
     }
@@ -46,7 +56,16 @@ function DeletePost() {
         'Authorization': token
       }
     });
-    alert('Postagem deletada com sucesso');
+    toast.success('Postagem deletado com sucesso!', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+    });
   }
 
   function no() {
